@@ -1,0 +1,14 @@
+{
+    "env": "production",
+    "queen": {
+        "host": "localhost",
+        "port": 4000
+    },
+    "worker": {
+        "count": 8,
+        "timeout": 20000
+    },
+    "cron": {
+        "interval": 120000
+    }
+}

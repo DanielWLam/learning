@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script src='js/jquery-1.11.3.js'></script>
+        <script src='js/underscore.js'></script>
+        <script src='js/backbone.js'></script>
+    </head>
+    <body>
+        <div id="view">
+            <input type="button" value="显示" id="btnShow">
+            <input type="button" value="隐藏" id="btnHide">
+        </div>
+        <div id="Info">
+            姓名：XXX <br>
+            性别：男 <br>
+            邮箱：ksjdlajd@dklaj.com <br>
+        </div>
+        <script>
+        var Student=Backbone.Model.extend({
+            initialize:function(){
+                intNum++;
+                console.log('created '+intNum+' objects');
+            },
+            defaults:{
+                Code:'',
+                Name:'',
+                Score:''
+            },
+            printLog:function(){
+                console.log(this.get('Name')+this.get('Class'));
+            }
+        })
+        var intNum=0;
+        var stuA=new Student();
+        stuA.set({
+            Code:'10101',
+            Name:'"hh"',
+            Score:'300',
+            Class:'class 2'
+        })
+        var stuB=new Student();
+        console.log(stuA.get('Name')+stuA.get('Class'));
+        console.log(stuA.escape('Name')+stuA.escape('Class'));
+        stuA.printLog();
+        </script>
+    </body>
+</html>

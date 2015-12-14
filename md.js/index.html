@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <script src="md.js"></script>
+    </head>
+    <body>
+        <script>
+            define('sayHi',function(require,exports,module){
+                module.exports=function(msg){
+                    console.log('hi, %s',msg);
+                };
+            });
+        </script>
+        <script>
+            define(function(require){
+                var hi=require('sayHi');
+                hi('daniel');
+            })
+        </script>
+    </body>
+</html>
