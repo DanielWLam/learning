@@ -2,7 +2,7 @@
  * @Author: daniel
  * @Date:   2015-12-11 15:52:19
  * @Last Modified by:   daniel
- * @Last Modified time: 2015-12-14 18:27:39
+ * @Last Modified time: 2015-12-15 10:31:30
  */
 
 'use strict';
@@ -13,11 +13,11 @@ var fs = require('fs'),
     ants = {},
     clue=require('./api/clue/clue'),
     logger = console,
-    schedule=require(node-schedule),
+    schedule=require('node-schedule'),
     MAXCLUE=5;
 
 function cronJob(){
-    var rule= new schedule.RecurrentceRule(),
+    var rule= new schedule.RecurrenceRule(),
         time=[10,20,30,40,50,60];
     rule.second=time;
     schedule.scheduleJob(rule,function(){
