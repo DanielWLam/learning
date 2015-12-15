@@ -2,7 +2,7 @@
  * @Author: daniel
  * @Date:   2015-12-11 15:52:19
  * @Last Modified by:   daniel
- * @Last Modified time: 2015-12-15 16:46:01
+ * @Last Modified time: 2015-12-15 19:46:11
  */
 
 'use strict';
@@ -11,7 +11,8 @@ var fs = require('fs'),
     taskFiles = [],
     clueQueue=[],
     ants = {},
-    clue=require('./api/clue/clue'),
+    cluster=require('./api/cluster/cluster'),
+    harvest=require('./api/harvest/harvest'),
     logger = console,
     schedule=require('node-schedule'),
     MAXCLUE=5;
@@ -42,7 +43,7 @@ function cronJob(){
 
 function fetchClue(){
     console.log('Fectching Clue...')
-    var fetch=clue.fetch;
+    var fetch=cluster.fetch;
     fetch(function(err,clues){
         if(err){
             logger.info(err);
@@ -64,6 +65,15 @@ function fetchClue(){
             });
         })
     })
+}
+
+function onTaskDone(err,task){
+    if(err){
+        logger.info(err);
+        return;
+    }
+    logger.info("队列元素数量： "+clueQueue.length);
+    harvest.create(task);
 }
 
 function findTask(path) {
