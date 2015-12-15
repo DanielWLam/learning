@@ -2,7 +2,7 @@
  * @Author: daniel
  * @Date:   2015-12-11 15:52:19
  * @Last Modified by:   daniel
- * @Last Modified time: 2015-12-15 10:31:30
+ * @Last Modified time: 2015-12-15 16:46:01
  */
 
 'use strict';
@@ -21,6 +21,7 @@ function cronJob(){
         time=[10,20,30,40,50,60];
     rule.second=time;
     schedule.scheduleJob(rule,function(){
+        console.log('cronJob begin...');
         var crtClue=clueQueue.shift();
         if(typeof (crtClue)!='undefined'){
             run({
@@ -40,6 +41,7 @@ function cronJob(){
 }
 
 function fetchClue(){
+    console.log('Fectching Clue...')
     var fetch=clue.fetch;
     fetch(function(err,clues){
         if(err){
@@ -51,6 +53,7 @@ function fetchClue(){
             return;
         }
         clues.forEach(function(clue){
+            console.log(clue);
             clueQueue.push(clue);
             var crtClue=clueQueue.shift();
             run({
@@ -107,6 +110,10 @@ function init() {
 }
 
 function run(task) {
+    if(!task){
+        cronJob();
+        return;
+    }
     var url=task.url,
         domain=getTopDomain(url),
         theAnt=ants[domain];

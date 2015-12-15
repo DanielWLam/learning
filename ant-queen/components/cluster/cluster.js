@@ -1,15 +1,30 @@
 /* 
  * @Author: daniel
- * @Date:   2015-12-15 11:13:29
+ * @Date:   2015-12-15 17:02:43
  * @Last Modified by:   daniel
- * @Last Modified time: 2015-12-15 12:37:33
+ * @Last Modified time: 2015-12-15 18:26:59
  */
 
 'use strict';
-var _ = require('underscore'),
-    url = require('url'),
-    uuid = require('uuid'),
-    domain = require('../domain/domain'),
-    conf = require('../../conf'),
-    stat = require('../stat/stat'),
-    mysql = require('../mysql/mysql');
+var mysql = require('../mysql/mysql');
+
+function find(data, callback) {
+    // mysql.init(function(err, result) {
+    //     if(err) {
+    //         console.log(err);
+    //     }
+
+    // })
+    console.log(callback.toString());
+    mysql.pool.query('SELECT * FROM cluster WHERE id = ?', [data.id],
+        function(err, result) {
+            if(err) throw err;
+
+            console.log(result);
+        }
+    );
+}
+// find({id:1},function(){
+//     console.log('success');
+// })
+exports.find = find;
