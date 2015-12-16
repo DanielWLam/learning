@@ -2,7 +2,7 @@
  * @Author: daniel
  * @Date:   2015-12-14 18:20:10
  * @Last Modified by:   daniel
- * @Last Modified time: 2015-12-15 19:37:20
+ * @Last Modified time: 2015-12-16 14:17:52
  */
 
 'use strict';
@@ -20,6 +20,9 @@ function fetch(callback) {
     request({
         method: 'GET',
         url: url,
+        qs:{
+            bid:'ant'
+        },
         json: true
     }, function(err, res, clue) {
         if (err || !clue) {

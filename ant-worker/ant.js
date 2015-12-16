@@ -2,7 +2,7 @@
  * @Author: daniel
  * @Date:   2015-12-11 15:52:19
  * @Last Modified by:   daniel
- * @Last Modified time: 2015-12-15 19:46:11
+ * @Last Modified time: 2015-12-16 19:51:34
  */
 
 'use strict';
@@ -26,9 +26,6 @@ function cronJob(){
         var crtClue=clueQueue.shift();
         if(typeof (crtClue)!='undefined'){
             run({
-                oid:crtClue.objectId,
-                eid:crtClue.eid,
-                tag:crtClue.tag,
                 url:crtClue.url,
                 done:onTaskDone
             });
@@ -54,12 +51,9 @@ function fetchClue(){
             return;
         }
         clues.forEach(function(clue){
-            console.log(clue);
             clueQueue.push(clue);
             var crtClue=clueQueue.shift();
             run({
-                oid:crtClue.objectId,
-                tag:crtClue.tag,
                 url:crtClue.url,
                 done:onTaskDone
             });
@@ -73,7 +67,13 @@ function onTaskDone(err,task){
         return;
     }
     logger.info("队列元素数量： "+clueQueue.length);
-    harvest.create(task);
+    harvest.create(task,function(err,res){
+        if(err){
+            console.log(err);
+            return;
+        }
+        console.log(res);
+    });
 }
 
 function findTask(path) {
@@ -154,7 +154,6 @@ function run(task) {
     }
 
     var handle=theAnt[handleName];
-
     handle(task);
 }
 

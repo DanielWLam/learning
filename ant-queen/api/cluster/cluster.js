@@ -2,20 +2,20 @@
  * @Author: daniel
  * @Date:   2015-12-15 17:02:11
  * @Last Modified by:   daniel
- * @Last Modified time: 2015-12-15 19:34:34
+ * @Last Modified time: 2015-12-16 14:30:48
  */
 
 'use strict';
 var cluster=require('../../components/cluster/cluster');
 function onFind(req, res) {
-    console.log(req.query)
-    var params = req.query,
+    var params = req.params,
+        qs=req.query,
+        bid=qs.bid,
         data = {
             id: params.id
         };
     cluster.find(data,function(items){
         res.send(items);
-        // console.log(items)
     });
 }
 module.exports=[

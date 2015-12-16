@@ -2,7 +2,7 @@
  * @Author: daniel
  * @Date:   2015-11-03 15:25:06
  * @Last Modified by:   daniel
- * @Last Modified time: 2015-12-14 16:06:36
+ * @Last Modified time: 2015-12-16 15:25:28
  */
 
 'use strict';
@@ -32,8 +32,6 @@ module.exports = function(task) {
             'page2': '.pgCtnD .posr a@href'
         })
         .data(function(data) {
-            logger.info(data);
-            logger.info('++++++++++');
             //-------------SET THE CATOGARYFIRST DATA
             var catFirst = '';
             if (task.url.match(/\/berita/)) {

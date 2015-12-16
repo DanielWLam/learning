@@ -2,7 +2,7 @@
 * @Author: daniel
 * @Date:   2015-12-15 19:40:03
 * @Last Modified by:   daniel
-* @Last Modified time: 2015-12-15 20:02:38
+* @Last Modified time: 2015-12-16 19:55:55
 */
 
 'use strict';
@@ -20,9 +20,13 @@ function create(task,callback){
         method:'POST',
         url:url,
         json:true,
-        body:task
+        data:task
     },function(err,res,body){
-
+        // if (err || !body) {
+        //     callback("服务器异常", null);
+        //     return;
+        // }
+        console.log(123);
     })
 }
 exports.create=create;
