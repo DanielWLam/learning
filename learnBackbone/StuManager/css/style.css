@@ -71,7 +71,7 @@ ul {
     display: none;
 }
 
-.show .edit,
+
 .editing .edit {
     display: block;
 }

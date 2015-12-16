@@ -23,7 +23,7 @@ $(function() {
         className: 'li_c',
         template: _.template($('#item-template').html()),
         events: {
-            'dbclick span': 'editing',
+            'dblclick span': 'editing',
             'blur input,select': 'blur',
             'click span a': 'dele'
         },
@@ -34,6 +34,7 @@ $(function() {
             var $curele=$(e.currentTarget);
             var objData={};
             objData[$curele.attr('name')]=$curele.val();
+            console.log(objData);
             this.model.set(objData,{'validate':true});
             $(e.currentTarget).parent().parent().removeClass('editing').addClass('show');
         },
