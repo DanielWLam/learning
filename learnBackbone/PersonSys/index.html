@@ -12,11 +12,12 @@
     <script src="js/jquery-1.11.1.js"></script>
     <script src="js/underscore.js"></script>
     <script src="js/backbone.js"></script>
+    <script src="js/backbone-localstorage.js"></script>
     <script src="js/application.js"></script>
-    <script src="text/template" id="tpl-item">
+    <script type="text/template" id="tpl-item">
         <%= (name?name:"<i>姓名为空</i>") %>
     </script>
-    <script src="text/template" id="tpl-top">    
+    <script type="text/template" id="tpl-top">    
         <header>
             <input type="search" autofocus>
         </header>
@@ -25,7 +26,7 @@
             <button>新建</button>
         </footer>
     </script>
-    <script src="text/template" id="tpl-show">
+    <script type="text/template" id="tpl-show">
         <header>
             <a class="edit">编辑</a>
         </header>
@@ -35,7 +36,7 @@
             <p>邮箱：<%= email %></p>
         </div>
     </script>
-    <script src="text/template" id="tpl-edit">
+    <script type="text/template" id="tpl-edit">
         <header>
             <a class="save">保存</a>
             <a class="dele">删除</a>

@@ -2,7 +2,7 @@
  * @Author: daniel
  * @Date:   2015-12-11 15:52:19
  * @Last Modified by:   daniel
- * @Last Modified time: 2015-12-16 19:51:34
+ * @Last Modified time: 2015-12-17 17:04:59
  */
 
 'use strict';
@@ -66,7 +66,7 @@ function onTaskDone(err,task){
         logger.info(err);
         return;
     }
-    logger.info("队列元素数量： "+clueQueue.length);
+    // logger.info("队列元素数量： "+clueQueue.length);
     harvest.create(task,function(err,res){
         if(err){
             console.log(err);
@@ -127,7 +127,6 @@ function run(task) {
     var url=task.url,
         domain=getTopDomain(url),
         theAnt=ants[domain];
-    
 
     if(!theAnt){
         logger.info('没有合适的工蚁');

@@ -2,7 +2,7 @@
  * @Author: daniel
  * @Date:   2015-12-11 15:52:30
  * @Last Modified by:   daniel
- * @Last Modified time: 2015-12-14 16:44:58
+ * @Last Modified time: 2015-12-17 16:35:02
  */
 
 'use strict';
@@ -10,7 +10,6 @@ var fs = require('fs'),
     _ = require('underscore'),
     path = require('path'),
 
-    DEV_FILENAME = 'config.dev.json',
     PROD_FILENAME = 'config.json',
 
     logger = console;
