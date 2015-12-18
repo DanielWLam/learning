@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+            #tip{
+                width:500px;
+                height: 50px;
+                border:1px solid #ccc;
+                background-color: #478;
+                color:#fff;
+                line-height: 50px;
+            }
+        </style>
+    </head>
+    <body>
+    <h3>dadladjlkajd</h3>
+
+    <div id="tip"></div>
+    <script src="js/requirejs.js"</script>
+    <script>
+        require.config({
+            baseUrl:"/require/js",
+            paths:{
+                jQuery:"jquery-1.11.3"
+            }
+        })
+        require(["jQuery"],function(){
+            $('#tip').show().html("Hello requirejs");
+        })
+    </script>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body> 
+        <div>记录总量：<span id="divNum"></span></div>
+        <div>刷新前：<span id="divShow"></span></div>
+        <script>
+        var obj={
+            Code:'112',
+            Name:'eee'
+        }
+        window.history.replaceState(obj,'PUSHSTATE');
+        document.getElementById('divNum').innerHTML=history.length;
+        document.getElementById('divShow').innerHTML=JSON.stringify(window.history.state);
+        </script>
+    </body>
+</html>

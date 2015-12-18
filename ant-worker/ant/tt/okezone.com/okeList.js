@@ -2,7 +2,7 @@
  * @Author: daniel
  * @Date:   2015-11-04 16:25:07
  * @Last Modified by:   daniel
- * @Last Modified time: 2015-12-15 10:24:42
+ * @Last Modified time: 2015-12-18 11:13:24
  */
 
 'use strict';
@@ -71,8 +71,8 @@ module.exports = function(task) {
             })
         })
         .error(function(err) {
-            console.error('[ERROR] Grab', msg);
-            done(msg, task);
+            console.error('[ERROR] Grab', err);
+            done(err, task);
         })
         .done(function(msg) {
             task.harvest = {
