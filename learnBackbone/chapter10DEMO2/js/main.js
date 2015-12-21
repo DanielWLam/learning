@@ -16,7 +16,8 @@ require.config({
         text: 'plugin/text',
         plugin: 'plugin',
         templates: '../templates',
-        modules: '../modules'
+        modules: '../modules',
+        model:'../model'
     }
 });
 require(['app'], function(app) {

@@ -5,7 +5,6 @@
  * @Last Modified time: 2015-12-21 18:36:13
  */
 
-'use strict';
 define(['jquery', 'underscore', 'backbone', 'modules/index/index', 'modules/list/list', 'jqm'],
     function ($, _, Backbone, index, list) {
         var Router = Backbone.Router.extend({

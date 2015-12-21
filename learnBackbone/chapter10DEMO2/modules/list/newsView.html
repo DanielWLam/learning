@@ -1,0 +1,12 @@
+<div data-role="header" data-postion="fixed">
+    <h1>科技</h1>
+    <a href="#index" data-position="home" data-iconpos="notext" data-direction="reverse">HOME</a>
+</div>
+<ul data-role="listView">
+    <% for (var i=0;i<data.length;i++){%>
+    <% var item=data[i];%>
+    <li><a href="#listdetail/<%=item.title%>/<%=item.id%>"><%= item.title %></a></li>
+</ul>
+<div data-role="footer" data-position="fixed">
+    <h4>daskjdlskajsd</h4>
+</div>
