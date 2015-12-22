@@ -1,12 +1,14 @@
-<div data-role="header" data-postion="fixed">
+<div data-role="header" data-position="fixed">
     <h1>科技</h1>
-    <a href="#index" data-position="home" data-iconpos="notext" data-direction="reverse">HOME</a>
+    <a href="#index" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
 </div>
-<ul data-role="listView">
-    <% for (var i=0;i<data.length;i++){%>
-    <% var item=data[i];%>
-    <li><a href="#listdetail/<%=item.title%>/<%=item.id%>"><%= item.title %></a></li>
+<ul data-role="listview">
+    <% for (var i = 0; i < data.length; i++) { %>
+    <% var item = data[i]; %>
+    <li><a href="#listdetail/<%=item.title%>/<%= item.id%>">
+        <%= item.title %></a> </li>
+    <% } %>
 </ul>
 <div data-role="footer" data-position="fixed">
-    <h4>daskjdlskajsd</h4>
+    <h4>荣拓工作室版权所有</h4>
 </div>
