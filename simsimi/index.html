@@ -5,36 +5,62 @@
     <meta charset="utf-8">
 </head>
 <style>
-#content {
+#simsimi {
     width: 100%;
     border: 1px solid #ccc;
+    margin: 30px auto;
 }
-#content:hover {
+
+#simsimi:hover {
     border: 1px solid blue;
 }
 </style>
 
 <body>
-    <div id="content">
-        dsadfafd
+    <div id="simsimi">
     </div>
+    <textarea name="" id="me" cols="30" rows="10"></textarea>
+    <input type="button" id="btn" value="Send">
     <script src="jquery-1.11.3.js"></script>
     <!--<script src="script.js"></script>-->
     <script>
-    $(function(){
+    $(function() {
         $.ajax({
-            type:'GET',
-            url:'http://localhost:8000/getChatResponse',
-            dataType:'json',
-            data:{
-                text:'hi'
+            type: 'GET',
+            url: 'http://localhost:8000/getChatResponse',
+            dataType: 'json',
+            data: {
+                text: 'hi'
             },
-            success:function(res){
+            success: function(res) {
                 console.log(res);
-                $('#content').text(res.response)
+                $('#simsimi').text(res.response)
             },
-            error:function(e){
+            error: function(e) {
                 console.log(e);
+            }
+        })
+
+
+        $('#btn').click(function() {
+            if ($('#me').val() == '') {
+                alert('不能为空！');
+            } else {
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://localhost:8000/greetingBack',
+                    dataType: 'json',
+                    data: {
+                        text: $('#me').val()
+                    },
+                    success: function(res) {
+                        console.log(res);
+                        $('#simsimi').text(res.response)
+                    },
+                    error: function(e) {
+                        console.log(e);
+                    }
+                })
             }
         })
     })
