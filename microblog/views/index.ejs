@@ -12,6 +12,16 @@
     </style>
   </head>
   <body>
+  <% if (success) {%>
+    <div class="bg-success">
+    <%= success %>        
+    </div>
+    <% } %>
+    <% if (error) {%>
+    <div class="bg-danger">
+    <%= error %>        
+    </div>
+    <% } %>
     <div class="navbar navbar-fixed-top navbar-default navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -20,13 +30,18 @@
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Index</a></li>
-                    <li><a href="#">Login</a></li>
-                    <li><a href="#">Register</a></li>
+                    <% if(!user) { %>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/reg">Register</a></li>
+                    <% } else { %>
+                    <li><a href="/logout">log out</a></li>
+                    <% } %>
                 </ul>
             </div>
         </div>
     </div>
     <div class="container" id="container">
+    <%if (!user) { %>
         <div class="jumbotron">
             <h1>Microblog</h1>
             <p>This is the demo!</p>
@@ -35,7 +50,11 @@
                 <a href="/reg" class="btn btn-default">注册</a>
             </p>
         </div>
-        <div class="row">
+    <% } else { %>
+        <% include say %>
+    <% } %>
+    <% include posts %>
+<!--         <div class="row">
             <div class="col-md-4">
                 <h2>Carbo 说</h2>
                 <p>Open Chinese Convert (OpenCC) 是一个开源的中文简繁转换项目。</p>
@@ -48,7 +67,7 @@
                 <h2>定爷 说</h2>
                 <p>巴拉巴拉巴拉克来得及啊科技大楼教父戴ueqwuefnvcdaj打卡机倒垃圾开绿灯飞机啊看发动机啊垃圾恶趣味i哦金额东风路卡江东父老卡死为缺钱 nlzn速度就会立刻飞机诶哦无穷房间里卡机飞抵哦啊金额哦红蔷薇uhfjklaw</p>
             </div>
-        </div>
+        </div> -->
     </div>
     <footer class="container">
         <p><a href="#">Copyright</a></p>

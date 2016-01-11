@@ -5,6 +5,10 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var util = require('util');
+var settings = require('./settings');
+var session = require('express-session');
+var MongoStore = require('connect-mongo')(session);
+var flash = require('connect-flash');
 
 
 var routes = require('./routes/index');
@@ -24,7 +28,38 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use(cookieParser());
+app.use(session({
+  secret: settings.cookieSecret,
+  key: settings.db,
+  store: new MongoStore({
+    // db: settings.db
+    url: 'mongodb://localhost/blog'
+  })
+}));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(flash());
+
+app.use(function(req, res, next) {
+  console.log('app.usr local');
+  res.locals.user = req.session.user;
+  res.locals.post = req.session.post;
+  var error = req.flash('error');
+  res.locals.error = error.length ? error : null;
+
+  var success = req.flash('success');
+  res.locals.success = success.length ? success : null;
+  next();
+})
+
+// app.locals.user=function(req,res,next){
+//   return req.session.user;
+// };
+
+// app.locals.post=function(req,res,next){
+//   return req.session.post;
+// };
+
+
 
 
 // app.use(function(req, res, next) {
@@ -33,12 +68,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 //     return util.inspect(obj, true);
 //   }
 // });
-app.locals.inspect=function(obj){
-  return util.inspect(obj,true);
-};
-app.locals.headers=function(req,res){
-  return req.headers;
-}
+// app.locals.inspect = function(obj) {
+//   return util.inspect(obj, true);
+// };
+// app.locals.headers = function(req, res) {
+//   return req.headers;
+// }
 
 app.use(routes);
 app.use(users);
