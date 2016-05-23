@@ -106,7 +106,7 @@ router.post('/post', function(req, res) {
             return res.redirect('/');
         }
         req.flash('success', 'post successfully');
-        res.redirect('/u/' + currentUser.name);
+        res.redirect('/');
     });
 })
 

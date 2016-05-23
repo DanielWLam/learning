@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <p>hello</p>
+    <a href="<%=result[0].link%>"><%=result[0].title%></a>
+    <%result.forEach(function(item,i){%>
+    <a href="http://daily.zhihu.com/<%=item.link%>"><img src="<%=item.img%>" alt=""><%=item.title%></a>
+    <%})%>
+  </body>
+</html>
