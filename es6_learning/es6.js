@@ -1,1 +1,3 @@
-console.log([1,2,3].map(x=>x*x));
+let [head,hh,...tail]=[1,2,3,4];
+console.log(head);
+console.log(tail);
