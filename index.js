@@ -1,22 +1,12 @@
+const serve = require('koa-static');
 const Koa = require('koa');
 const app = new Koa();
-var Router = require('koa-router');
-
-// var app = new Koa();
-var router = new Router();
-
-router.get('/', function (ctx, next) {
-  ctx.body = 'hello world'
-});
-
-router.get('/list', function (ctx, next) {
-  ctx.body = 'hhhhh'
-});
-
+const router = require('./router.js');
 
 app
   .use(router.routes())
-  .use(router.allowedMethods());
+  .use(router.allowedMethods())
+  .use(serve('public/*/'))
 // middleware
 // X-Response-Time
 // app.use(async (ctx, next) => {

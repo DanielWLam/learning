@@ -1,8 +1,12 @@
 const Router = require('koa-router');
 const router = new Router();
 
-router.get('/list', function * (ctx, next) {
-  console.log(123)
+router.get('/', function (ctx, next) {
+  ctx.body = 'hello world'
+});
+
+router.get('/list', function (ctx, next) {
+  ctx.body = 'hhhhh'
 });
 
 module.exports = router;
