@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="demo">
+        <my-view></my-view>
+        <div name={{hello}}>{{hello}}</div>
+        <div v-bind:name="hello">{{hello}}</div>
+        <img v-bind:src="imageSrc">
+        <img src="{{imageSrc}}">
+    </div>
+    <script src="vue.js"></script>
+    <script>
+    var MyView=Vue.extend({
+        template:'<div>Hello!</div>'
+    });
+    
+    Vue.component('my-view',MyView);
+
+    new Vue({
+        el:'#demo',
+        data:{
+            hello:'daniel',
+            imageSrc:["123","456"]
+        }
+    })
+    </script>
+</body>
+
+</html>

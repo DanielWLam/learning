@@ -1,0 +1,7 @@
+<h2>业务</h2>
+{{ data['name'] }}
+<h3>详细数据</h3>
+<p>IP：{{ data['ip'] }}</p>
+<p>目录：{{ data['cwd'] }}</p>
+<p>最后一次心跳时间：{{ data['lastReportTime'] }}</p>
+<p>该爬虫已超过{{ data['tm'] }}未发送心跳，阈值为{{ data['threshold'] }}。请检查进程是否仍然存活</p>

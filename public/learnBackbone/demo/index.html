@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+    <ul id="ulshowstus">
+        <li class="lh">
+            <span>编号</span>
+            <span>姓名</span>
+            <span>分数</span>
+        </li>
+    </ul>
+    <br>
+    <ul>
+        <li>
+            编号：
+            <input type="text" id="txtCode">
+        </li>
+        <li>
+            姓名：
+            <input type="text" id="txtName">
+        </li>
+        <li>
+            分数：
+            <input type="text" id="txtScore">
+        </li>
+        <li>
+            <input type="button" id="btnSubmit" value="提交">
+        </li>
+    </ul>
+    <script type="text/template" id="stus-tpl">   
+    <li class="lc">
+        <span><%=Code%></span>
+        <span><%=Name%></span>
+        <span><%=Score%></span>
+    </li>
+    </script>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/underscore.js"></script>
+    <script src="js/backbone.js"></script>
+    <script src="js/application.js"></script>
+    </body>
+</html>

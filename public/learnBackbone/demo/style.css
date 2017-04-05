@@ -1,0 +1,35 @@
+/* 
+* @Author: daniel
+* @Date:   2015-12-17 15:07:05
+* @Last Modified by:   daniel
+* @Last Modified time: 2015-12-17 15:13:34
+*/
+body{
+    font-size: 12px;
+}
+ul{
+    list-style: none;
+    padding:0px;
+    margin:0px;
+    width:270px;
+}
+ul li{
+    margin:5px 0px;
+}
+ul .lh{
+    font-weight: bold;
+    border-bottom: 1px solid #555;
+    background-color: #eee;
+    height: 23px;
+    line-height: 23px;
+}
+ul .lc{
+    border-bottom: 1px dashed #ccc;
+    height: 23px;
+    line-height: 23px;
+}
+ul li span{
+    padding-left: 10px;
+    width:80px;
+    float: left;
+}
