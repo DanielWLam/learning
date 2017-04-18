@@ -6,7 +6,7 @@ const router = require('./router.js');
 app
   .use(router.routes())
   .use(router.allowedMethods())
-  .use(serve('public/*/'))
+  .use(serve('public'))
 // middleware
 // X-Response-Time
 // app.use(async (ctx, next) => {
@@ -27,5 +27,6 @@ app
 // app.use(ctx => {
 //   ctx.body = 'hello world'
 // });
-
-app.listen(3000)
+app.listen(3000, () => {
+  console.log('Listening on port: 3000')
+})

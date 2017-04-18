@@ -12,9 +12,8 @@
         <div name={{hello}}>{{hello}}</div>
         <div v-bind:name="hello">{{hello}}</div>
         <img v-bind:src="imageSrc">
-        <img src="{{imageSrc}}">
     </div>
-    <script src="vue.js"></script>
+    <script src="./vue.js"></script>
     <script>
     var MyView=Vue.extend({
         template:'<div>Hello!</div>'
@@ -26,7 +25,7 @@
         el:'#demo',
         data:{
             hello:'daniel',
-            imageSrc:["123","456"]
+            imageSrc:'https://www.google.com.hk/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png'
         }
     })
     </script>
