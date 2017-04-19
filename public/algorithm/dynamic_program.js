@@ -16,6 +16,8 @@ function test (n) {
 }
 
 //LIS Longest increase sequense最长非降序子序列
+// 一开始想错了，15, 27, 14, 38, 26, 55, 46, 65, 85 => 6 => 15, 27, 38, 55, 65, 85
+// 2, 1, 5, 3, 6, 4, 8, 9, 7 => 5  => 1, 5, 6, 8, 9
 function lis(arr) {
   let d = [];
   let len = 1;
