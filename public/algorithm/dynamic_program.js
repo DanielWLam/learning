@@ -35,6 +35,29 @@ function lis(arr) {
   return len;
 }
 
+function lis2(arr) {
+  let d = [];
+  let len = 1;
+  let target = [];
+  for (let i = 0; i < arr.length; i++)   {
+    d[i] = 1;
+    target[i] = [arr[i]];
+    for (let j = 0; j < i; j++) {
+      if (j < i && arr[j] < arr[i]) {
+        d[i] = d[j] + 1;
+      }
+      let preMax = Math.max.apply(Math, target[i-1])
+      if (j < i && arr[j] < arr[i] && arr[j] <= preMax) {
+        target[i].push(arr[j]);
+      }
+    }
+    if (d[i] > len) {
+      len = d[i];
+    }
+  }
+  return target;
+}
 
-lis([5,3,4,8,2])
+
+lis2([5,3,4,8,2])
 
