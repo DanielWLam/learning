@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p>{{msg}}</p>
+    <p>{{msgg}}</p>
+    <p>{{msg}}</p>
+    <p>{{msggg}}</p>
+  </div>
+  <script>
+    window.onload = function () {
+      function Vue (id, data) {
+        let el = document.getElementById(id)
+        let content = el.innerHTML.replace(/\{\{(.+)\}\}/g, replaceAtt)
+        el.innerHTML = content
+
+        function replaceAtt(match, variable) {
+          return `<span data-vue=${variable}>${data[variable]}</span>`
+        }
+
+      }
+      var vue = new Vue('app', {
+        msg: 'hello!!'
+      })
+    }
+  </script>
+</body>
+</html>
