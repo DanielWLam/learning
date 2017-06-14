@@ -6,7 +6,7 @@ const ProductList = ({ onDelete, products }) => {
   const columns = [
     {
       title: 'Name',
-      dataIndex: 'name'
+      dataIndex: 'name',
     },
     {
       title: 'Actions',
@@ -15,21 +15,21 @@ const ProductList = ({ onDelete, products }) => {
           <Popconfirm title="Delete ? " onConfirm={() => onDelete(record.id)}>
             <Button>Delete</Button>
           </Popconfirm>
-        )
-      }
-    }
+        );
+      },
+    },
   ];
   return (
-    <Table 
+    <Table
       dataSource={products}
       columns={columns}
     />
-  )
+  );
 };
 
 ProductList.propTypes = {
   onDelete: PropTypes.func.isRequired,
-  products: PropTypes.array.isRequired
-}
+  products: PropTypes.array.isRequired,
+};
 
 export default ProductList;

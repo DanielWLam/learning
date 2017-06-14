@@ -7,7 +7,7 @@ function RouterConfig({ history }) {
   return (
     <Router history={history}>
       <Route path="/" component={IndexPage} />
-      <Route path="/products" component={Products}></Route>
+      <Route path="/products" component={Products} />
     </Router>
   );
 }
