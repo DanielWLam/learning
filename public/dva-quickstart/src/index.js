@@ -13,17 +13,17 @@ const app = dva({
       {
         name: 'antd',
         id: 2,
-      }
-    ]
-  }
-})
+      },
+    ],
+  },
+});
 
 // 2. Plugins
 // app.use({});
 
 // 3. Model
 // app.model(require('./models/example'));
-app.model(require('./models/products.js'))
+app.model(require('./models/products.js'));
 
 // 4. Router
 app.router(require('./router'));
