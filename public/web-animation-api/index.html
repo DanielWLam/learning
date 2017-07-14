@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="animate-me" style="margin-top: 500px;border-radius: 50px;background-color: red;width: 100px;height:100px;"></div>
+  <script>
+    var element = document.querySelector('.animate-me')
+    let keyframes = [
+      {
+        transform: 'translateY(-1000px) scaleY(2.5) scaleX(.2)',
+        transformOrigin: '50% 0',
+        filter: 'blur(40px)',
+        opacity: 0
+      },
+      {
+        transform: 'translateY(0) scaleY(1) scaleX(1)',
+        transformOrigin: '50% 0',
+        filter: 'blur(0)',
+        opacity: 1
+      }
+    ]
+    element.animate(keyframes, 300);
+  </script>
+</body>
+</html>
