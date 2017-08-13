@@ -6,5 +6,17 @@
 </head>
 <body>
 	<script src="./index.js"></script>
+	<script>
+	(function() {
+			console.log(typeof name)
+			if (typeof name === 'undefined') {
+				console.log('hello jack')
+			} else {
+				console.log('hello ' + name);
+			}
+		})()
+		var name = 'world!';
+		
+	</script>
 </body>
 </html>
