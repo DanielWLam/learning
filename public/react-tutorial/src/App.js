@@ -1,41 +1,33 @@
 import React from 'react';
 import './App.css';
-import Clock from './Clock'
-
-function WarningBanner (props) {
-  if (!props.warn) {
-    return null
-  }
-  return (
-    <div className="warning">
-      Warning!
-    </div>
-  )
-}
+// import Clock from './Clock'
 
 class App extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      showWarning: true
+      value: ''
     }
-    this.handleToggleClick = this.handleToggleClick.bind(this)
   }
-  handleToggleClick () {
-    console.log(123)
-    this.setState(prevState => {
-      return {
-        showWarning: !prevState.showWarning
-      }
+  handleChange (event) {
+    this.setState({
+      value: event.target.value.toUpperCase()
     })
+  }
+  handleSubmit (event) {
+    alert('A name was submitted: ' + this.state.value)
+    event.preventDefault()
   }
   render () {
     return (
       <div>
-        <WarningBanner warn={this.state.showWarning}></WarningBanner>
-        <button onClick={this.handleToggleClick}>
-          {this.state.showWarning ? 'Hide' : 'Show'}
-        </button>
+        <form>
+          <label>
+            Name:
+            <input type="text" name="name" value={this.state.value} onChange={this.handleChange.bind(this)} />
+          </label>
+          <input type="submit" value="Submit" onClick={this.handleSubmit.bind(this)} />
+        </form>
       </div>
     )
   }
