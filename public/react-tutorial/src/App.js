@@ -2,30 +2,44 @@ import React from 'react';
 import './App.css';
 import Clock from './Clock'
 
+function WarningBanner (props) {
+  if (!props.warn) {
+    return null
+  }
+  return (
+    <div className="warning">
+      Warning!
+    </div>
+  )
+}
+
 class App extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      isToggleOn: true
+      showWarning: true
     }
-    this.handleClick = this.handleClick.bind(this)
+    this.handleToggleClick = this.handleToggleClick.bind(this)
   }
-  handleClick () {
+  handleToggleClick () {
+    console.log(123)
     this.setState(prevState => {
       return {
-        isToggleOn: !prevState.isToggleOn
+        showWarning: !prevState.showWarning
       }
     })
   }
   render () {
     return (
       <div>
-        <button onClick={this.handleClick}>
-          {this.state.isToggleOn ? 'ON' : 'OFF'}
+        <WarningBanner warn={this.state.showWarning}></WarningBanner>
+        <button onClick={this.handleToggleClick}>
+          {this.state.showWarning ? 'Hide' : 'Show'}
         </button>
       </div>
     )
   }
 }
+
 
 export default App;
