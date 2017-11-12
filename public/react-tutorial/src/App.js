@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-// import Clock from './Clock'
+import Calculater from './Calculator'
 
 class App extends React.Component {
   constructor (props) {
@@ -21,13 +21,7 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        <form>
-          <label>
-            Name:
-            <input type="text" name="name" value={this.state.value} onChange={this.handleChange.bind(this)} />
-          </label>
-          <input type="submit" value="Submit" onClick={this.handleSubmit.bind(this)} />
-        </form>
+        <Calculater />
       </div>
     )
   }
