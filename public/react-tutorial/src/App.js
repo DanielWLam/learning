@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Calculater from './Calculator'
+import WelcomeDialog from './WeclomeDialog'
 
 class App extends React.Component {
   constructor (props) {
@@ -21,9 +21,7 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        <Calculater
-          scale="c"
-        />
+        <WelcomeDialog />
       </div>
     )
   }
