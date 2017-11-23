@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <canvas></canvas>
+  <script>
+    document.addEventListener('touchmove', function (e) {
+      e.preventDefault()
+    })
+    var c = document.getElementsByTagName('canvas')[0], // 获取canvas元素
+      x = c.getContext('2d'), // 获取context
+      pr = window.devicePixelRatio || 1, // 设备像素比：设备物理像素/设备独立像素
+      w = window.innerWidth, // 屏幕宽度
+      h = window.innerHeight, // 屏幕高度
+      f = 200, // TODO: 未知
+      q, // TODO: 未知
+      m = Math, // Math函数缩写
+      r = 0, // TODO: 未知
+      u = m.PI * 2, // TODO: 2PI, 可能与周长有关
+      v = m.cos, // Math.cos, 余弦函数
+      z = m.random // 随机函数
+    c.width = w * pr // context宽度
+    c.height = h * pr // context高度
+    console.log(pr)
+    x.scale(pr, pr)
+    x.globalAlpha = 0.6
+    function i() {
+      x.clearRect(0, 0, w, h)
+      q = [{ x: 0, y: h * .7 + f }, { x: 0, y: h * .7 - f }]
+      console.log(h * .7 + f, h * .7 - f , '==')
+      while (q[1].x < w + f) d(q[0], q[1])
+    }
+    function d(i, j) {
+      x.beginPath()
+      x.moveTo(i.x, i.y) // 屏幕左边初始化的连线， q0起点
+      x.lineTo(j.x, j.y) // 连到q1
+      var k = j.x + (z() * 2 - 0.25) * f, // 随机一个新的X点
+        n = y(j.y) // 随机一个大于0， 小于屏幕高度的y点
+      
+      console.log(k, 'kkkkk')
+      x.lineTo(k, n)
+      x.closePath()
+      r -= u / -50
+      x.fillStyle = '#' + (v(r) * 127 + 128 << 16 | v(r + u / 3) * 127 + 128 << 8 | v(r + u / 3 * 2) * 127 + 128).toString(16)
+      x.fill()
+      q[0] = q[1]
+      q[1] = { x: k, y: n }
+    }
+    function y(p) {
+      var t = p + (z() * 2 - 1.1) * f
+      console.log(t, 'ttt')
+      return (t > h || t < 0) ? y(p) : t
+    }
+    document.onclick = i
+    document.ontouchstart = i
+    i()
+  </script>
+</body>
+
+</html>

@@ -1,21 +1,31 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import WelcomeDialog from './WeclomeDialog'
 
-class App extends Component {
-  render() {
+class App extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      value: ''
+    }
+  }
+  handleChange (event) {
+    this.setState({
+      value: event.target.value.toUpperCase()
+    })
+  }
+  handleSubmit (event) {
+    alert('A name was submitted: ' + this.state.value)
+    event.preventDefault()
+  }
+  render () {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <WelcomeDialog />
       </div>
-    );
+    )
   }
 }
+
 
 export default App;
