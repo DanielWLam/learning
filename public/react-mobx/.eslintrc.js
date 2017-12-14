@@ -1,5 +1,4 @@
 // http://eslint.org/docs/user-guide/configuring
-
 module.exports = {
   root: true,
   parser: 'babel-eslint',
@@ -7,7 +6,8 @@ module.exports = {
     sourceType: 'module',
     ecmaFeatures: {
       jsx: true
-    }
+    },
+    experimentalDecorators: true
   },
   env: {
     es6: true,
