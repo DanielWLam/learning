@@ -1,8 +1,8 @@
-export default class Dog {
-  constructor (name) {
-    this.name = name
-  }
-  wow () {
-    console.log('wow, I am ' + this.name)
-  }
-}
+import React, {Component} from 'react'
+import ReactDOM from 'react-dom'
+import App from './App.jsx'
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+)
