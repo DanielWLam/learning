@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">{{message}}</div>
+  <script>
+    console.log(document.getElementById('app'))
+    window.onload = () => {
+      const $app = document.getElementById('app')
+      const vm = {}
+      Object.defineProperty(data, 'message', {
+        get: function () {
+          return tdata.message
+        },
+        set: function (val) {
+          tdata.messsage = val
+        }
+      })
+      test($app)
+      function test (el) {
+        const reg = /{{(\w+)}}/
+        const tdata = {
+          message: 'hello world'
+        }
+        let r = reg.exec(el.innerHTML)
+        if (r) {
+          el.innerHTML = tdata[r[1]]
+        }
+      }
+    }
+  </script>
+</body>
+</html>
