@@ -28,6 +28,9 @@ module.exports = {
       }
     ]
   },
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
   devServer: {
     // contentBase: path.join(__dirname, 'dist'),
     index: path.resolve(__dirname, 'index.html'),
