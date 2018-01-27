@@ -1,18 +1,37 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
+import classnames from 'classnames'
 
 export default class TabContent extends Component {
-  constructor (props) {
-    super()
-    console.log(this, props)
+  static propTypes = {
+    classPrefix: PropTypes.string,
+    panels: PropTypes.node,
+    activeIndex: PropTypes.number
   }
-  handleClick = (e) => {
-    console.log(123, e)
+  getTabPanels () {
+    const {classPrefix, activeIndex, panels} = this.props
+    return React.Children.map(panels, (child) => {
+      if (!child) {
+        return
+      }
+      const order = parseInt(child.props.order, 10)
+      const isActive = activeIndex === order
+      return React.cloneElement(child, {
+        classPrefix,
+        isActive,
+        children: child.props.children,
+        key: `tabpane-${order}`
+      })
+    })
   }
   render () {
+    const {classPrefix} = this.props
+    const classes = classnames({
+      [`${classPrefix}-content`]: true
+    })
     return (
-      <div>
-        <h1>Hello I am TabContent</h1>
-        <button onClick={this.handleClick.bind(null)}>Click me!</button>
+      <div className={classes}>
+        {this.getTabPanels()}
       </div>
     )
   }
