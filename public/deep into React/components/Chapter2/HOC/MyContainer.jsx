@@ -8,7 +8,11 @@ const MyContainer = (WrappedComponent) => {
         name: 123
       }
     }
+    handleOnChange (e) {
+      console.log(123)
+    }
     render () {
+      const newProps = {}
       return (
         <WrappedComponent {...this.state} {...this.props}></WrappedComponent>
       )
