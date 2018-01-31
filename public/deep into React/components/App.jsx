@@ -2,7 +2,7 @@ import React from 'react'
 import Tab from './Tab.jsx'
 import TabPane from './TabPane'
 import QRCode from './Chapter2/QRCode'
-import MyComponent from './Chapter2/HOC/MyComponent'
+import MyComponent from './Chapter2/HOC/MyComponentDecorator'
 
 export default class App extends React.Component {
   getContent () {

@@ -1,12 +1,13 @@
 import React, {Component} from 'react'
 import MyContainer from './MyContainer'
- 
+
+@MyContainer
 class MyComponent extends Component {
   render () {
     return (
-      <h1>Hello, I am {this.props.name}</h1>
+      <p>Hi, my name is {this.props.name}</p>
     )
   }
 }
 
-export default MyContainer(MyComponent)
+export default MyComponent

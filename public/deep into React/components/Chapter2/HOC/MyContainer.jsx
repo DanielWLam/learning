@@ -2,10 +2,15 @@ import React, {Component} from 'react'
 
 const MyContainer = (WrappedComponent) => {
   return class extends Component {
+    constructor () {
+      super()
+      this.state = {
+        name: 123
+      }
+    }
     render () {
-      console.log(this)
       return (
-        <WrappedComponent {...this.props}></WrappedComponent>
+        <WrappedComponent {...this.state} {...this.props}></WrappedComponent>
       )
     }
   }
