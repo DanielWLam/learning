@@ -3,8 +3,15 @@ import Tab from './Tab.jsx'
 import TabPane from './TabPane'
 import QRCode from './Chapter2/QRCode'
 import MyComponent from './Chapter2/HOC/MyComponentDecorator'
+import Fade from './Chapter2/Animation/Fade'
 
 export default class App extends React.Component {
+  constructor () {
+    super()
+    this.state = {
+      in: false
+    }
+  }
   getContent () {
     // return (
     //   <Tab 
@@ -17,11 +24,18 @@ export default class App extends React.Component {
     //   </Tab>
     // )
     // return (<QRCode></QRCode>)
-    return <MyComponent></MyComponent>
+    // return <MyComponent></MyComponent>
+    return (<Fade in={this.state.in}></Fade>)
+  }
+  toggleEnterState = () => {
+    this.setState({
+      in: !this.state.in
+    })
   }
   render () {
     return <div>
       {this.getContent()}
+      <button onClick={this.toggleEnterState}>click to enter</button>
     </div>
   }
 }
