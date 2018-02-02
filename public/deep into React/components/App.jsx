@@ -4,6 +4,7 @@ import TabPane from './TabPane'
 import QRCode from './Chapter2/QRCode'
 import MyComponent from './Chapter2/HOC/MyComponentDecorator'
 import Fade from './Chapter2/Animation/Fade'
+import CssTraBounce from './Chapter2/Animation/CssTraBounce'
 
 export default class App extends React.Component {
   constructor () {
@@ -25,7 +26,7 @@ export default class App extends React.Component {
     // )
     // return (<QRCode></QRCode>)
     // return <MyComponent></MyComponent>
-    return (<Fade in={this.state.in}></Fade>)
+    return (<CssTraBounce in={this.state.in} />)
   }
   toggleEnterState = () => {
     this.setState({
